@@ -1,0 +1,72 @@
+dialog{
+
+  //overwrite chrome's user agent stylesheet
+  position: absolute;
+  left: auto;
+  right: auto;
+  width: auto;
+  height: auto;
+  margin: auto;
+  border: none;
+  padding: 0;
+  background: none;
+  color: inherit;
+
+  display: block;
+
+  .modal-header.modal-header-notitle{
+    height: 30px;
+    border-bottom: none;
+    .close{
+      margin-top: -9px;
+    }
+  }
+
+  &:not([open]) {
+    display: block;
+  }
+
+  [ref-id=controls]{
+    float: right;
+    > * {
+      float: left;
+      margin-left: 5px;
+    }
+  }
+
+}
+
+.animation-toolbar{
+  margin-bottom: 1em;
+}
+
+.btn.btn-default.active{
+  background-color: #96EDAB;
+}
+
+.anim-test{
+  width: 200px;
+  height: 200px;
+  display: block;
+  background: #ccc;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 0 auto;
+}
+
+.list{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+select.select-m{
+  width: 200px;
+}
+
+select.centered{
+  margin:0 auto;
+}
+
+
+@import "animations";

@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.js"],"names":[],"mappings":";uBAAgB,SAAS;;AAAlB,WAAS,SAAS,CAAC,OAAO,EAAC;AAChC,WAAO,CAAC,kBAAkB,CAAC,UAAU,CAAC,CAAC;GACxC","file":"index.js","sourceRoot":"/source/","sourcesContent":["export function configure(aurelia){\n  aurelia.globalizeResources(\"./dialog\");\n}\n"]}

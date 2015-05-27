@@ -1,0 +1,18 @@
+<template>
+  <div class="modal" ref-id="container">
+    <div class="modal-dialog" ref-id="dialog">
+      <div class="modal-content">
+        <div class="modal-header ${(this.hasTitle)? '':'modal-header-notitle'}">
+          <div ref-id="controls">
+            <button click.delegate="this.close()" class="close" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <h4 class="modal-title" ref-id="title"></h4>
+        </div>
+        <div class="modal-body" ref-id="content"></div>
+        <div class="modal-footer" ref-id="footer"></div>
+      </div>
+    </div>
+  </div>
+</template>

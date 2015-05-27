@@ -1,0 +1,30 @@
+<template>
+  <section class="au-animate text-center">
+
+    <div class="animation-toolbar">
+      <a class="btn btn-default" click.delegate="enterAnimation()">enter</a>
+      <a class="btn btn-default" click.delegate="leaveAnimation()">leave</a>
+      <a class="btn btn-default" click.delegate="nextAnimation()">next</a>
+
+      <label for="select-transition">transition: </label>
+      <select class="form-control select-m centered" name="transition" id="select-transition" value.bind="selectedTransition">
+        <option value.bind="item.value" repeat.for="item of transitions">${(item.label)? item.label : item.value}</option>
+      </select>
+    </div>
+
+    isAnimating: ${isAnimating}
+
+    <div class="anim-test au-animate au-in" ref="bla">Bla</div>
+
+    <h2>Events</h2>
+    <ul class="list">
+      <li repeat.for="item of events"><a class="btn btn-default" click.delegate="$parent.triggerEvent($event,item.value)" value.bind="item.value" >${(item.label)? item.label : item.value}</a></li>
+    </ul>
+
+    <h2>Behaviors</h2>
+    <ul class="list">
+      <li repeat.for="item of behaviors"><a class="btn btn-default" click.delegate="$parent.toggleBehavior($event,item.value)" value.bind="item.value" >${(item.label)? item.label : item.value}</a></li>
+    </ul>
+
+  </section>
+</template>

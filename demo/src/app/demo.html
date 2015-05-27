@@ -1,0 +1,77 @@
+<template>
+  <section class="au-animate">
+
+    <markdown>
+      <h2>Demo</h2>
+
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dolorem doloremque excepturi illum incidunt nemo perspiciatis quod temporibus ut? Accusantium atque consectetur error est, expedita explicabo facere laudantium recusandae repudiandae.
+
+    </markdown>
+
+    <br/><br/>
+
+    <label for="select-transition">Transition </label>
+    <select class="form-control select-m" name="transition" id="select-transition" value.bind="selectedTransition">
+      <option value.bind="item.value" repeat.for="item of transitions">${(item.label)? item.label : item.value}</option>
+    </select>
+
+    <br/>
+
+    <a class="btn btn-default" click.delegate="openDialog('dialog')">Open Dialog</a>
+    <a class="btn btn-default" click.delegate="openDialog('dialog2')">Open Dialog 2</a>
+    <a class="btn btn-default" click.delegate="openDialog('dialog3')">Open Dialog 3</a>
+    <a class="btn btn-default" click.delegate="openDialog('dialog4')">Open Dialog 4</a>
+    <a class="btn btn-default" click.delegate="openDialog('dialogArticleOnly')">ArticleOnly</a>
+
+    <dialog ref.view-model="dialog" view="gooy/aurelia-dialog/modal-bootstrap.html">
+      <title innerhtml.bind="testtitle"></title>
+      <controls>
+        <button click.delegate="dialog.close()" class="close" aria-label="Close">
+         <span aria-hidden="true">-</span>
+        </button>
+        <button click.delegate="dialog.close()" class="close" aria-label="Close">
+         <span aria-hidden="true">+</span>
+        </button>
+        <button click.delegate="dialog.close()" class="close" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+        </button>
+      </controls>
+      <content>Article</content>
+      <footer>
+        <button click.delegate="doSomething()" class="btn">Do something</button>
+        <button click.delegate="doSomethingElse()" class="btn btn-success">Do something else</button>
+      </footer>
+    </dialog>
+
+    <dialog ref.view-model="dialog2" view="gooy/aurelia-dialog/modal-bootstrap.html">
+      <title>Plain content test</title>
+      <content>
+        <h2>Test</h2>
+        <p>
+          <b>Lorem ipsum</b> dolor sit amet, consectetur adipisicing elit. Ad autem deleniti dignissimos doloremque facere harum id illo non nostrum odio odit officiis optio quam recusandae reiciendis repellat velit voluptatibus, voluptatum.
+          ${testtitle}
+        </p>
+      </content>
+    </dialog>
+
+    <dialog ref.view-model="dialogArticleOnly" view="gooy/aurelia-dialog/modal-bootstrap.html">
+      <content>
+        <p>Look Mom ! no title and no footers !</p>
+      </content>
+    </dialog>
+
+    <dialog ref.view-model="dialog3" view="gooy/aurelia-dialog/modal-bootstrap.html">
+      <title>View Model Test</title>
+      <content view-model="test-viewmodel"></content>
+      <footer>
+        <button click.delegate="dialog3.close()" class="btn">OK</button>
+      </footer>
+    </dialog>
+
+    <dialog ref.view-model="dialog4" view="gooy/aurelia-dialog/modal-bootstrap.html">
+      <title>View Test</title>
+      <content view="test-view.html"></content>
+    </dialog>
+
+  </section>
+</template>
