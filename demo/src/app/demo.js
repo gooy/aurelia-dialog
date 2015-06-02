@@ -1,20 +1,22 @@
 import {bindable} from 'aurelia-framework';
+import {SmoothScroll} from 'components/smooth-scroll';
 
-export class Home{
+export class Demo{
 
   testtitle = "FooBar";
 
   transitions = [
     {value:"fade"},
-    {value:"fade-right-left"},
-    {value:"fade-left-right"},
-    {value:"fade-top-bottom"},
-    {value:"fade-bottom-top"},
-    {value:"fade-zoom-in"},
-    {value:"fade-zoom-out"}
+    {value:"left"},
+    {value:"right"},
+    {value:"top"},
+    {value:"bottom"},
+    {value:"zoom-in"},
+    {value:"zoom-out"}
   ];
 
-  @bindable selectedTransition = "fade-top-bottom";
+  @bindable selectedEnterAnimation = "zoom-in";
+  @bindable selectedLeaveAnimation = "zoom-in";
 
   static inject = [Element];
   constructor(element) {
@@ -22,37 +24,46 @@ export class Home{
   }
 
   attached(){
+    //this.selectedEnterAnimationChanged(this.selectedEnterAnimation);
+    //this.selectedLeaveAnimationChanged(this.selectedLeaveAnimation);
 
+    setTimeout(()=>SmoothScroll.scrollTo(window.location.hash),500);
   }
 
   openDialog(name) {
 
     if(this[name]) {
-      this[name].transition = "anim-"+this.selectedTransition;
+      this[name].transition = "anim-"+this.selectedEnterAnimation + " anim-leave-"+this.selectedLeaveAnimation;
       this[name].open();
     }
   }
 
   doSomething(){
-    console.log('doing something !');
+    alert('doing something !');
   }
 
   doSomethingElse(){
-    console.log('doing something else !');
+    alert('doing something else !');
   }
 
-  selectedTransitionChanged(newValue,oldValue){
-
-    //console.log('this.dialog', this.dialog);
-
-    /*var dialogs = this.element.querySelectorAll('dialog');
+  /*selectedEnterAnimationChanged(newValue,oldValue){
+    var dialogs = this.element.querySelectorAll('dialog');
     for(var i = 0, l = dialogs.length; i < l; i++){
       var obj = dialogs[i].children[0];
       console.log('obj', obj);
       obj.classList.remove("anim-"+oldValue);
       obj.classList.add("anim-"+newValue);
-    }*/
-
+    }
   }
+
+  selectedLeaveAnimationChanged(newValue,oldValue){
+    var dialogs = this.element.querySelectorAll('dialog');
+    for(var i = 0, l = dialogs.length; i < l; i++){
+      var obj = dialogs[i].children[0];
+      console.log('obj', obj);
+      obj.classList.remove("anim-leave-"+oldValue);
+      obj.classList.add("anim-leave-"+newValue);
+    }
+  }*/
 
 }

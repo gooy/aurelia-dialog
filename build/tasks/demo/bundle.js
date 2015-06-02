@@ -23,15 +23,10 @@ gulp.task('demo-bundle', function (done) {
     'aurelia-dependency-injection',
     'aurelia-framework',
     'aurelia-router',
-    'aurelia-animator-css',
+    'aaike/animator-css',
     'npm:core-js',
 
     'github:aurelia/metadata@0.5.0',
-    'github:zewa666/aurelia-i18next@master',
-    'github:zewa666/aurelia-i18next@master/t',
-    'github:zewa666/aurelia-i18next@master/nf',
-    'github:zewa666/aurelia-i18next@master/df',
-    'github:zewa666/aurelia-i18next@master/rt',
     //'github:aurelia/validation@0.2.4',
     'github:aurelia/task-queue@0.4.0',
     'github:aurelia/event-aggregator@0.4.0',
@@ -40,12 +35,14 @@ gulp.task('demo-bundle', function (done) {
     'github:aurelia/history-browser@0.4.0',
     'github:aurelia/event-aggregator@0.4.0',
     'github:aurelia/templating-router@0.12.0',
-    'github:aurelia/templating-resources@0.11.0',
+    'github:aurelia/templating-resources@0.11.1',
     'github:aurelia/templating-binding@0.11.0',
     'github:aurelia/binding@0.6.1',
     'github:aurelia/loader-default@0.7.0'
 
   ].join(' + ');
+
+
 
   jspm.bundle(cmd,distFile,{inject:true,minify:true}).then(function(){
     fs.rename(distFile, outputFile, function(){

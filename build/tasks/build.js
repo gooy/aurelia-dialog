@@ -50,7 +50,7 @@ gulp.task('clean-dist', function() {
 gulp.task('build', function(done) {
   return runSequence(
     'clean-dist',
-    ['build-system','build-html'],
+    ['build-system','build-html','less'],
     done
   );
 });

@@ -1,12 +1,21 @@
 <template>
-  <section class="page au-animate container">
+  <section class="au-animate container">
 
-    <markdown>
-      # Dialog
+<markdown>
+# Options
 
-      This is a Generic dialog custom element that works with any type of markup or styling.
+Options for the dialog can be configured when registering it's plugin.
+An instance of the default configuration will be provided in the callback.
 
-    </markdown>
+```javascript
+aurela.use.plugin('gooy/aurelia-dialog',config=>{
+
+  config.view = "gooy/aurelia-dialog/modal-bootstrap.html";
+  config.animations = "zoom-in leave-zoom-in";
+
+})
+```
+</markdown>
 
 
     <markdown>

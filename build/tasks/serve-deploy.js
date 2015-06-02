@@ -4,6 +4,6 @@ var server = require('gulp-express');
 /**
  * Serve the deploy directory for deploy testing
  */
-gulp.task('demo-serve-deploy',['demo-build-prod'], function() {
+gulp.task('serve-deploy', function() {
   server.run(['server-deploy.js']);
 });

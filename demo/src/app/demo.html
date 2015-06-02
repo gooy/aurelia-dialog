@@ -1,77 +1,204 @@
 <template>
-  <section class="au-animate">
+  <section class="page au-animate section-sidemenu">
+    <aside>
 
-    <markdown>
-      <h2>Demo</h2>
+      <nav class="sidemenu">
+        <ul class="list-group">
+          <li class="list-group-item"> <a href="#/demo/static-content" smooth-scroll>Static content</a></li>
+          <li class="list-group-item"> <a href="#/demo/custom-dialog-controls" smooth-scroll>Custom dialog controls</a></li>
+        </ul>
+      </nav>
 
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dolorem doloremque excepturi illum incidunt nemo perspiciatis quod temporibus ut? Accusantium atque consectetur error est, expedita explicabo facere laudantium recusandae repudiandae.
+    </aside>
+    <article>
 
-    </markdown>
 
-    <br/><br/>
+<markdown id="/demo/static-content">
+## Static content
 
-    <label for="select-transition">Transition </label>
-    <select class="form-control select-m" name="transition" id="select-transition" value.bind="selectedTransition">
-      <option value.bind="item.value" repeat.for="item of transitions">${(item.label)? item.label : item.value}</option>
-    </select>
+The most simple use of the dialog is with static content.
+The dialog can specify a `title`, `article` and `footer` element.
+The attributes and contents of these elements will be injected into the appropraite location in the dialog template.
 
-    <br/>
+```markup
+<dialog ref.view-model="myDialog">
+  <title>Title</title>
+  <article>Body content</article>
+  <footer>Footer</footer>
+</dialog>
+```
+</markdown>
+    <dialog ref.view-model="dialogStaticContent">
+      <title>Title</title>
+      <article>Body content</article>
+      <footer>Footer</footer>
+    </dialog>
+<a class="btn btn-default" click.delegate="openDialog('dialogStaticContent')">Demo</a>
 
-    <a class="btn btn-default" click.delegate="openDialog('dialog')">Open Dialog</a>
-    <a class="btn btn-default" click.delegate="openDialog('dialog2')">Open Dialog 2</a>
-    <a class="btn btn-default" click.delegate="openDialog('dialog3')">Open Dialog 3</a>
-    <a class="btn btn-default" click.delegate="openDialog('dialog4')">Open Dialog 4</a>
-    <a class="btn btn-default" click.delegate="openDialog('dialogArticleOnly')">ArticleOnly</a>
+<markdown>
+<h2 id="/demo/custom-dialog-controls">Custom dialog controls</h2>
 
-    <dialog ref.view-model="dialog" view="gooy/aurelia-dialog/modal-bootstrap.html">
-      <title innerhtml.bind="testtitle"></title>
+The controls can be specified using the `controls` tag.
+Notice how `self.` can be used to reference methods in the dialog's VM.
+
+```markup
+<dialog ref.view-model="myDialog">
+  <title>Title</title>
+  <article>Body content</article>
+  <footer>Footer</footer>
+  <controls>
+    <button click.delegate="self.close()" class="close" aria-label="Close">
+     <span aria-hidden="true">-</span>
+    </button>
+    <button click.delegate="self.close()" class="close" aria-label="Close">
+     <span aria-hidden="true">+</span>
+    </button>
+    <button click.delegate="self.close()" class="close" aria-label="Close">
+     <span aria-hidden="true">&times;</span>
+    </button>
+  </controls>
+</dialog>
+```
+</markdown>
+    <dialog ref.view-model="dialogCustomControls">
+      <title>Title</title>
+      <article>
+        This dialog has extra buttons in it's controls (in the top right corner next to the close button).
+        For this demo these have all been setup to close the dialog.
+      </article>
+      <footer>Footer</footer>
       <controls>
-        <button click.delegate="dialog.close()" class="close" aria-label="Close">
+        <button click.delegate="self.close()" class="close" aria-label="Minify">
          <span aria-hidden="true">-</span>
         </button>
-        <button click.delegate="dialog.close()" class="close" aria-label="Close">
+        <button click.delegate="self.close()" class="close" aria-label="Expand">
          <span aria-hidden="true">+</span>
         </button>
-        <button click.delegate="dialog.close()" class="close" aria-label="Close">
+        <button click.delegate="self.close()" class="close" aria-label="Close">
          <span aria-hidden="true">&times;</span>
         </button>
       </controls>
-      <content>Article</content>
+    </dialog>
+<a class="btn btn-default" click.delegate="openDialog('dialogCustomControls')">Demo</a>
+
+<markdown>
+## Footer buttons
+
+The footer contents can be specified using the `footer` tag.
+This makes it easy to add buttons to it.
+
+```markup
+<dialog ref.view-model="myDialog">
+  <title>Title</title>
+  <article>Body content</article>
+  <footer>
+    <button click.delegate="doSomething()" class="btn">Do something</button>
+    <button click.delegate="doSomethingElse()" class="btn btn-success">Do something else</button>
+  </footer>
+</dialog>
+```
+</markdown>
+    <dialog ref.view-model="dialogFooterButtons">
+      <title>Title</title>
+      <article>
+        This dialog has custom footer buttons, used in a similar way to the dialog controls.
+      </article>
       <footer>
+        <button click.delegate="self.close()" class="btn">Close me</button>
         <button click.delegate="doSomething()" class="btn">Do something</button>
         <button click.delegate="doSomethingElse()" class="btn btn-success">Do something else</button>
       </footer>
     </dialog>
+<a class="btn btn-default" click.delegate="openDialog('dialogFooterButtons')">Demo</a>
 
-    <dialog ref.view-model="dialog2" view="gooy/aurelia-dialog/modal-bootstrap.html">
-      <title>Plain content test</title>
-      <content>
-        <h2>Test</h2>
-        <p>
-          <b>Lorem ipsum</b> dolor sit amet, consectetur adipisicing elit. Ad autem deleniti dignissimos doloremque facere harum id illo non nostrum odio odit officiis optio quam recusandae reiciendis repellat velit voluptatibus, voluptatum.
-          ${testtitle}
-        </p>
-      </content>
+<markdown>
+## Optional title and footer
+
+The `title` and `footer` can be omitted to show a dialog that only has a body.
+
+```markup
+<dialog ref.view-model="myDialog">
+  <article>This dialog does not have a `title` or `footer`</article>
+</dialog>
+```
+</markdown>
+    <dialog ref.view-model="dialogArticleOnly">
+      <article>
+        This container does not have a title or footer.
+      </article>
     </dialog>
+<a class="btn btn-default" click.delegate="openDialog('dialogArticleOnly')">Demo</a>
 
-    <dialog ref.view-model="dialogArticleOnly" view="gooy/aurelia-dialog/modal-bootstrap.html">
-      <content>
-        <p>Look Mom ! no title and no footers !</p>
-      </content>
-    </dialog>
 
-    <dialog ref.view-model="dialog3" view="gooy/aurelia-dialog/modal-bootstrap.html">
+<markdown>
+## Customize animations
+
+The dialog integrates with the `aurelia-animator-css` plugin.
+Just add the approriate classes to get various `enter` and `leave` animations.
+</markdown>
+
+
+<div class="form-group">
+  <label for="select-transition-enter">enter animation </label>
+  <select class="form-control" id="select-transition-enter" value.bind="selectedEnterAnimation">
+    <option value.bind="item.value" repeat.for="item of transitions">${(item.label)? item.label : item.value}</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="select-transition-leave">leave animation </label>
+  <select class="form-control" id="select-transition-leave" value.bind="selectedLeaveAnimation">
+    <option value.bind="item.value" repeat.for="item of transitions">${(item.label)? item.label : item.value}</option>
+  </select>
+</div>
+
+<br/>
+
+<a class="btn btn-default" click.delegate="openDialog('dialogStaticContent')">Demo</a>
+
+
+<markdown>
+## Loading a template into the body
+
+Add the `view` property to any element to make it load in a template.
+The view will use the same execution context as the VM where the modal was opened.
+
+```markup
+<dialog ref.view-model="myDialog">
+  <title>Title</title>
+  <article view="welcome.html">Body content</article>
+  <footer>Footer</footer>
+</dialog>
+```
+</markdown>
+<dialog ref.view-model="dialogView">
+  <title>View Test</title>
+  <article view="test-view.html"></article>
+</dialog>
+    <a class="btn btn-default" click.delegate="openDialog('dialogView')">Demo</a>
+
+<markdown>
+## Loading a ViewModel into the body
+
+Add the `view-model` property to any element to make it load in a view model.
+The view model will have it's own execution context that can be accessed through the `articleVM` property on the dialog.
+
+```markup
+<dialog ref.view-model="myDialog">
+  <title>Title</title>
+  <article view-model="welcome">Body content</article>
+  <footer>Footer</footer>
+</dialog>
+```
+</markdown>
+<dialog ref.view-model="dialogViewModel">
       <title>View Model Test</title>
-      <content view-model="test-viewmodel"></content>
-      <footer>
-        <button click.delegate="dialog3.close()" class="btn">OK</button>
-      </footer>
+      <article view-model="test-view-model"></article>
     </dialog>
+<a class="btn btn-default" click.delegate="openDialog('dialogViewModel')">Demo</a>
 
-    <dialog ref.view-model="dialog4" view="gooy/aurelia-dialog/modal-bootstrap.html">
-      <title>View Test</title>
-      <content view="test-view.html"></content>
-    </dialog>
+    </article>
+
 
   </section>
 </template>

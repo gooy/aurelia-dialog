@@ -1,39 +1,93 @@
-dialog{
 
-  //overwrite chrome's user agent stylesheet
-  position: absolute;
-  left: auto;
-  right: auto;
-  width: auto;
-  height: auto;
-  margin: auto;
-  border: none;
-  padding: 0;
-  background: none;
-  color: inherit;
+@color-primary: #aaa;
 
+a{
+  cursor: pointer;
+}
+
+html{
+  height: 100%;
+}
+
+
+body{
+  transition: scrollTop 400ms ease-in;
+  height: 100%;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: darken(@color-primary,10);
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+  &:hover{
+    background-color: darken(@color-primary,20);
+  }
+}
+
+.list-group{
+  .list-group-item{
+    padding: 0;
+    a{
+      padding: 5px 15px;
+      display: block;
+    }
+  }
+}
+
+.modal-backdrop{
+  height: 100%;
+  position: fixed;
+  z-index: 1039;
+}
+
+.sidemenu-container{
+  margin-top: 1em;
+}
+
+section.page{
+  padding-top: 1px;
+}
+
+nav-bar{
   display: block;
+  margin-bottom: 0;
 
-  .modal-header.modal-header-notitle{
-    height: 30px;
-    border-bottom: none;
-    .close{
-      margin-top: -9px;
+  > nav{
+    margin-bottom: 0;
+  }
+}
+
+.section-sidemenu{
+  > aside{
+    width: 200px;
+    position: fixed;
+    padding: 20px 0 0 10px;
+    .list-group-item{
+      cursor: pointer;
+      a{
+        text-decoration: none;
+        color: #333;
+      }
+      &:hover{
+        background: #eee;
+        a{
+          color: #000;
+        }
+      }
     }
   }
-
-  &:not([open]) {
-    display: block;
+  > article{
+    margin-left: 220px;
+    padding-top: 1px;
   }
+}
 
-  [ref-id=controls]{
-    float: right;
-    > * {
-      float: left;
-      margin-left: 5px;
-    }
-  }
-
+.page-host{
+  margin-bottom: 4em;
+  margin-top: 50px;
 }
 
 .animation-toolbar{
@@ -68,5 +122,5 @@ select.centered{
   margin:0 auto;
 }
 
-
+@import "dialog";
 @import "animations";

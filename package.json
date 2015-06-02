@@ -28,10 +28,12 @@
   "dependencies": {
     "beautiful-docs": "^1.0.3",
     "child-process-promise": "^1.1.0",
+    "connect-history-api-fallback": "^1.1.0",
     "conventional-changelog": "0.0.17",
     "deep-extend": "^0.4.0",
     "del": "^1.2.0",
     "fs-extra": "^0.18.4",
+    "glob": "^5.0.10",
     "graceful-fs": "^3.0.7",
     "gulp-autoprefixer": "^2.3.0",
     "gulp-copy": "0.0.2",
@@ -43,9 +45,12 @@
     "less-plugin-clean-css": "^1.5.0",
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
-    "resolve-dep": "^0.5.3"
+    "require-dir": "^0.3.0",
+    "resolve-dep": "^0.5.3",
+    "rsvp": "^3.0.18"
   },
   "devDependencies": {
+    "bootstrap-less": "^3.3.8",
     "browser-sync": "^1.8.1",
     "compression": "^1.4.2",
     "core-js": "^0.8.4",
@@ -87,10 +92,8 @@
       "lib": "dist"
     },
     "dependencies": {
-      "aaike/animator-css": "github:aaike/animator-css@master",
-      "aurelia-bootstrapper": "github:aurelia/bootstrapper@^0.12.0",
-      "gooy/aurelia-compiler": "github:gooy/aurelia-compiler@master",
-      "gooy/aurelia-markdown": "github:gooy/aurelia-markdown@master"
+      "aurelia-loader": "github:aurelia/loader@^0.6.0",
+      "gooy/aurelia-compiler": "github:gooy/aurelia-compiler@0.0.3"
     },
     "devDependencies": {
       "aurelia-bootstrapper": "github:aurelia/bootstrapper@^0.12.0",
@@ -104,13 +107,40 @@
       "core-js": "npm:core-js@^0.9.5",
       "css": "github:systemjs/plugin-css@^0.1.9",
       "font-awesome": "npm:font-awesome@^4.3.0",
-      "text": "github:systemjs/plugin-text@^0.0.2"
+      "gooy/aurelia-markdown": "github:gooy/aurelia-markdown@^0.0.1",
+      "text": "github:systemjs/plugin-text@^0.0.2",
+      "velocity": "github:julianshapiro/velocity@^1.2.2",
+      "zepto": "github:distros/zepto@^1.1.6"
     },
     "overrides": {
       "github:lazd/scopedQuerySelectorShim@master": {
         "directories": {
           "lib": "src"
         }
+      },
+      "github:Reactive-Extensions/RxJS@2.5.2": {
+        "main": "rx.js",
+        "format": "global",
+        "directories": {
+          "lib": "dist"
+        }
+      },
+      "github:aurelia/loader@0.6.0": {
+        "dependencies": {
+          "aurelia-html-template-element": "github:aurelia/html-template-element@^0.2.0",
+          "aurelia-path": "github:aurelia/path@^0.6.0",
+          "core-js": "npm:core-js@^0.9.5",
+          "webcomponentsjs": "github:webcomponents/webcomponentsjs@^0.7.2"
+        }
+      },
+      "github:julianshapiro/velocity@1.2.2": {
+        "files": [
+          "velocity.js",
+          "velocity.min.js",
+          "velocity.ui.js",
+          "velocity.ui.min.js"
+        ],
+        "format": "global"
       }
     }
   }

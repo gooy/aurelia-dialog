@@ -1,4 +1,4 @@
-import 'bootstrap/css/bootstrap.css!';
+import 'prism/themes/prism-okaidia.css!';
 
 export class App {
 

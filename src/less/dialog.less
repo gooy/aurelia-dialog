@@ -1,0 +1,36 @@
+dialog{
+
+  //overwrite chrome's user agent stylesheet
+  position: absolute;
+  left: auto;
+  right: auto;
+  width: auto;
+  height: auto;
+  margin: auto;
+  border: none;
+  padding: 0;
+  background: none;
+  color: inherit;
+
+  //hide when it doesn't have the open class
+  &:not(.open) { display: none; }
+  &.open{ display: block; }
+
+  //float the controls container right and the buttons left
+  .controls{
+    float: right;
+    .close {
+      float:none;
+    }
+  }
+
+  //smaller header if no title is used
+  .modal-header.modal-header-notitle{
+    height: 30px;
+    border-bottom: none;
+    .close{
+      margin-top: -9px;
+    }
+  }
+
+}

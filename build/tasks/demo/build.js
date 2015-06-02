@@ -14,6 +14,7 @@ var del = require('del');
 var vinylPaths = require('vinyl-paths');
 
 var dirs = gulp.pkg.demo.directories;
+var _dirs = gulp.pkg.directories;
 
 /**
  * Transpile es6 code into the dist directory
@@ -61,11 +62,11 @@ gulp.task('demo-build-assets', function (done) {
  */
 gulp.task('demo-build-jspm-packages', function () {
   var patterns = [
-    "jspm_packages/github/webcomponents/webcomponentsjs@0.6.1/HTMLImports.min.js",
-    "jspm_packages/github/aurelia/html-template-element@0.2.0/HTMLTemplateElement.js",
-    "jspm_packages/github/aurelia/html-template-element@0.2.0/HTMLTemplateElement.min.js",
-    //"jspm_packages/npm/font-awesome@4.3.0/css/**/*",
-    //"jspm_packages/npm/font-awesome@4.3.0/fonts/**/*",
+    "jspm_packages/github/webcomponents/webcomponentsjs@*/HTMLImports.min.js",
+    "jspm_packages/github/aurelia/html-template-element@*/HTMLTemplateElement.js",
+    "jspm_packages/github/aurelia/html-template-element@*/HTMLTemplateElement.min.js",
+    "jspm_packages/npm/font-awesome@*/css/**/*",
+    "jspm_packages/npm/font-awesome@*/fonts/**/*",
     "jspm_packages/*"
   ];
 
@@ -76,7 +77,7 @@ gulp.task('demo-build-jspm-packages', function () {
       glob(pattern, {}, function (er, files){
         for(var i2 = 0, l2 = files.length; i2 < l2; i2++){
           var file = files[i2];
-          fse.copy(file, dirs.build+"/"+file,resolve);
+          fse.copy(file, _dirs.deploy+"/"+file,resolve);
         }
       });
     });
@@ -101,7 +102,7 @@ gulp.task('demo-build', function(done) {
     'demo-clean-dist',
     //'demo-unbundle',
     ['demo-build-system','demo-build-html','demo-build-root','demo-build-assets'],
-    ['demo-less'],
+    ['demo-less','demo-less_bootstrap'],
     done
   );
 });
@@ -114,7 +115,7 @@ gulp.task('demo-build-prod', function(done) {
     'demo-clean-dist',
     //'demo-unbundle',
     ['demo-build-system','demo-build-html','demo-build-assets'],
-    ['demo-less-prod'],
+    ['demo-less-prod','demo-less_bootstrap-prod'],
     'demo-bundle',
     'demo-bundle-app',
     'demo-uglify-dist',

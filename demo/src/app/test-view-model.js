@@ -13,22 +13,6 @@ export class TestViewModel{
     return `${this.firstName} ${this.lastName}`;
   }
 
-  bind() {
-    console.log('VIEWMODEL bind');
-  }
-
-  attached() {
-    console.log('VIEWMODEL attached');
-  }
-
-  detached() {
-    console.log('VIEWMODEL detached');
-  }
-
-  unbind() {
-    console.log('VIEWMODEL unbind');
-  }
-
   welcome(){
     alert(`Welcome, ${this.fullName}!`);
   }
