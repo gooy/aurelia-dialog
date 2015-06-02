@@ -62,12 +62,13 @@ gulp.task('demo-build-assets', function (done) {
  */
 gulp.task('demo-build-jspm-packages', function () {
   var patterns = [
-    "jspm_packages/github/webcomponents/webcomponentsjs@*/HTMLImports.min.js",
-    "jspm_packages/github/aurelia/html-template-element@*/HTMLTemplateElement.js",
-    "jspm_packages/github/aurelia/html-template-element@*/HTMLTemplateElement.min.js",
-    "jspm_packages/npm/font-awesome@*/css/**/*",
-    "jspm_packages/npm/font-awesome@*/fonts/**/*",
-    "jspm_packages/*"
+    "jspm_packages/github/webcomponents/webcomponentsjs@0.6.1/HTMLImports.min.js",
+    "jspm_packages/github/aurelia/html-template-element@0.2.0/HTMLTemplateElement.js",
+    "jspm_packages/github/aurelia/html-template-element@0.2.0/HTMLTemplateElement.min.js",
+    "jspm_packages/npm/font-awesome@4.3.0/css/**/*",
+    "jspm_packages/npm/font-awesome@4.3.0/fonts/**/*",
+    "jspm_packages/*.js",
+    "jspm_packages/*.map"
   ];
 
   var promises = [];
@@ -77,6 +78,7 @@ gulp.task('demo-build-jspm-packages', function () {
       glob(pattern, {}, function (er, files){
         for(var i2 = 0, l2 = files.length; i2 < l2; i2++){
           var file = files[i2];
+          console.log(_dirs.deploy + "/" + file);
           fse.copy(file, _dirs.deploy+"/"+file,resolve);
         }
       });
