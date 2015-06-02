@@ -3,7 +3,7 @@ module.exports.pkg = require('gulp').pkg = require('deep-extend')({
   directories: {
     lib: "src",
     build: "dist",
-    deploy: "deploy",
+    deploy: "./deploy",
     test: "test",
     unit: "test/unit/src",
     e2e: "test/e2e/src",

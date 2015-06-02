@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var runSequence = require('run-sequence').use(gulp);
+var ghPages = require('gulp-gh-pages');
 var dirs = gulp.pkg.directories;
 
 /**
