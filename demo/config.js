@@ -256,14 +256,20 @@ System.config({
       "github:aurelia/bootstrapper@0.12.0"
     ],
     "app-bundle": [
-      "test-viewmodel",
+      "test-view-model",
+      "options",
       "nav-bar",
       "github:showdownjs/showdown@0.5.4/showdown",
       "github:PrismJS/prism@master/prism",
+      "github:gooy/aurelia-dialog@0.0.1/element-selectors",
+      "github:gooy/aurelia-dialog@0.0.1/config",
+      "github:julianshapiro/velocity@1.2.2/velocity",
       "github:showdownjs/showdown@0.5.4",
       "github:PrismJS/prism@master",
-      "github:gooy/aurelia-compiler@master/index",
-      "github:gooy/aurelia-compiler@master",
+      "github:julianshapiro/velocity@1.2.2",
+      "github:gooy/aurelia-compiler@0.0.3/index",
+      "components/smooth-scroll",
+      "github:gooy/aurelia-compiler@0.0.3",
       "github:gooy/aurelia-markdown@0.0.1/markdown",
       "github:gooy/aurelia-dialog@0.0.1/dialog",
       "github:gooy/aurelia-markdown@0.0.1/index",
@@ -273,7 +279,8 @@ System.config({
       "main",
       "home",
       "demo",
-      "github:twbs/bootstrap@3.3.4/css/bootstrap.css!github:systemjs/plugin-css@0.1.10",
+      "config",
+      "github:PrismJS/prism@master/themes/prism-okaidia.css!github:systemjs/plugin-css@0.1.10",
       "app"
     ]
   }
@@ -295,13 +302,16 @@ System.config({
     "core-js": "npm:core-js@0.9.13",
     "css": "github:systemjs/plugin-css@0.1.10",
     "font-awesome": "npm:font-awesome@4.3.0",
-    "gooy/aurelia-compiler": "github:gooy/aurelia-compiler@master",
+    "gooy/aurelia-compiler": "github:gooy/aurelia-compiler@0.0.3",
     "gooy/aurelia-dialog": "github:gooy/aurelia-dialog@0.0.1",
     "gooy/aurelia-markdown": "github:gooy/aurelia-markdown@0.0.1",
+    "prism": "github:PrismJS/prism@master",
     "rxjs": "github:Reactive-Extensions/RxJS@2.5.2",
     "scopedQuerySelectorShim": "github:lazd/scopedQuerySelectorShim@master",
     "text": "github:systemjs/plugin-text@0.0.2",
+    "velocity": "github:julianshapiro/velocity@1.2.2",
     "webcomponents/webcomponentsjs": "github:webcomponents/webcomponentsjs@0.7.2",
+    "zepto": "github:distros/zepto@1.1.6",
     "github:aaike/animator-css@0.2.1": {
       "aurelia-templating": "github:aurelia/templating@0.11.2"
     },
@@ -404,12 +414,13 @@ System.config({
       "aurelia-task-queue": "github:aurelia/task-queue@0.4.0",
       "core-js": "npm:core-js@0.9.13"
     },
-    "github:gooy/aurelia-compiler@master": {
+    "github:gooy/aurelia-compiler@0.0.3": {
       "aurelia-loader": "github:aurelia/loader@0.6.0",
-      "aurelia-loader-default": "github:aurelia/loader-default@0.7.0"
+      "aurelia-loader-default": "github:aurelia/loader-default@0.7.0",
+      "aurelia-templating": "github:aurelia/templating@0.11.2"
     },
     "github:gooy/aurelia-dialog@0.0.1": {
-      "gooy/aurelia-compiler": "github:gooy/aurelia-compiler@master"
+      "gooy/aurelia-compiler": "github:gooy/aurelia-compiler@0.0.3"
     },
     "github:gooy/aurelia-markdown@0.0.1": {
       "prism": "github:PrismJS/prism@master",
