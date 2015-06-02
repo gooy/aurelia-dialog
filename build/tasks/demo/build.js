@@ -65,6 +65,7 @@ gulp.task('demo-build-jspm-packages', function () {
     "jspm_packages/github/webcomponents/webcomponentsjs@0.6.1/HTMLImports.min.js",
     "jspm_packages/github/aurelia/html-template-element@0.2.0/HTMLTemplateElement.js",
     "jspm_packages/github/aurelia/html-template-element@0.2.0/HTMLTemplateElement.min.js",
+    "jspm_packages/github/gooy/aurelia-dialog@0.0.1/*.html",
     "jspm_packages/npm/font-awesome@4.3.0/css/**/*",
     "jspm_packages/npm/font-awesome@4.3.0/fonts/**/*",
     "jspm_packages/*.js",
