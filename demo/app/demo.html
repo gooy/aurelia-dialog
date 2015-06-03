@@ -6,6 +6,12 @@
         <ul class="list-group">
           <li class="list-group-item"> <a href="#/demo/static-content" smooth-scroll>Static content</a></li>
           <li class="list-group-item"> <a href="#/demo/custom-dialog-controls" smooth-scroll>Custom dialog controls</a></li>
+          <li class="list-group-item"> <a href="#/demo/footer-buttons" smooth-scroll>Footer buttons</a></li>
+          <li class="list-group-item"> <a href="#/demo/optional-title-footer" smooth-scroll>Optional title/footer</a></li>
+          <li class="list-group-item"> <a href="#/demo/customize-animations" smooth-scroll>Customize animations</a></li>
+          <li class="list-group-item"> <a href="#/demo/loading-template" smooth-scroll>Loading a template</a></li>
+          <li class="list-group-item"> <a href="#/demo/loading-view-model" smooth-scroll>Loading a ViewModel</a></li>
+          <li class="list-group-item"> <a href="#/demo/custom-template" smooth-scroll>Use custom dialog template</a></li>
         </ul>
       </nav>
 
@@ -14,7 +20,7 @@
 
 
 <markdown id="/demo/static-content">
-## Static content
+<h2 id="/demo/static-content">Static content</h2>
 
 The most simple use of the dialog is with static content.
 The dialog can specify a `title`, `article` and `footer` element.
@@ -82,7 +88,7 @@ Notice how `self.` can be used to reference methods in the dialog's VM.
 <a class="btn btn-default" click.delegate="openDialog('dialogCustomControls')">Demo</a>
 
 <markdown>
-## Footer buttons
+  <h2 id="/demo/footer-buttons">Footer buttons</h2>
 
 The footer contents can be specified using the `footer` tag.
 This makes it easy to add buttons to it.
@@ -112,7 +118,7 @@ This makes it easy to add buttons to it.
 <a class="btn btn-default" click.delegate="openDialog('dialogFooterButtons')">Demo</a>
 
 <markdown>
-## Optional title and footer
+  <h2 id="/demo/optional-title-footer">Optional title and footer</h2>
 
 The `title` and `footer` can be omitted to show a dialog that only has a body.
 
@@ -131,7 +137,7 @@ The `title` and `footer` can be omitted to show a dialog that only has a body.
 
 
 <markdown>
-## Customize animations
+  <h2 id="/demo/customize-animations">Customize animations</h2>
 
 The dialog integrates with the `aurelia-animator-css` plugin.
 Just add the approriate classes to get various `enter` and `leave` animations.
@@ -158,7 +164,7 @@ Just add the approriate classes to get various `enter` and `leave` animations.
 
 
 <markdown>
-## Loading a template into the body
+  <h2 id="/demo/loading-template">Loading a template into the body</h2>
 
 Add the `view` property to any element to make it load in a template.
 The view will use the same execution context as the VM where the modal was opened.
@@ -178,7 +184,7 @@ The view will use the same execution context as the VM where the modal was opene
     <a class="btn btn-default" click.delegate="openDialog('dialogView')">Demo</a>
 
 <markdown>
-## Loading a ViewModel into the body
+  <h2 id="/demo/loading-view-model">Loading a ViewModel into the body</h2>
 
 Add the `view-model` property to any element to make it load in a view model.
 The view model will have it's own execution context that can be accessed through the `articleVM` property on the dialog.
@@ -196,6 +202,32 @@ The view model will have it's own execution context that can be accessed through
       <article view-model="test-view-model"></article>
     </dialog>
 <a class="btn btn-default" click.delegate="openDialog('dialogViewModel')">Demo</a>
+
+
+
+<markdown>
+  <h2 id="/demo/custom-template">Use a custom template for the dialog itself</h2>
+
+A custom template can be speficied for the dialog. It can be used to use different markup for the resulting dialog.
+
+```markup
+<dialog ref.view-model="myDialog" view="foundation-modal.html">
+  <title>Title</title>
+  <article view-model="welcome">Body content</article>
+  <footer>Footer</footer>
+</dialog>
+```
+
+The default view to be used can be specified in the configuration of the plugin:
+
+```javascript
+.plugin('my-dialog',config=>{
+  config.view = "foundation-modal.html";
+})
+
+
+```
+</markdown>
 
     </article>
 

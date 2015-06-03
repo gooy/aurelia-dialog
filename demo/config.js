@@ -279,7 +279,6 @@ System.config({
       "main",
       "home",
       "demo",
-      "config",
       "github:PrismJS/prism@master/themes/prism-okaidia.css!github:systemjs/plugin-css@0.1.10",
       "app"
     ]
@@ -311,7 +310,7 @@ System.config({
     "text": "github:systemjs/plugin-text@0.0.2",
     "velocity": "github:julianshapiro/velocity@1.2.2",
     "webcomponents/webcomponentsjs": "github:webcomponents/webcomponentsjs@0.7.2",
-    "zepto": "github:distros/zepto@1.1.6",
+    "zepto": "npm:zepto@0.0.4",
     "github:aaike/animator-css@0.2.1": {
       "aurelia-templating": "github:aurelia/templating@0.11.2"
     },
@@ -568,6 +567,9 @@ System.config({
     },
     "npm:util@0.10.3": {
       "inherits": "npm:inherits@2.0.1",
+      "process": "github:jspm/nodelibs-process@0.1.1"
+    },
+    "npm:zepto@0.0.4": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     }
   }
