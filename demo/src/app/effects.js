@@ -63,6 +63,7 @@ export class SettingsPage{
   }
 
   enterDurationChanged(newValue,oldValue){
+    console.log('enterChanged');
     this.updateEnterAnimation();
   }
 
@@ -78,8 +79,14 @@ export class SettingsPage{
     this.updateLeaveAnimation();
   }
 
+  leaveDurationChanged(newValue,oldValue){
+    console.log('leaveChanged');
+    this.updateLeaveAnimation();
+  }
+
   updateLeaveAnimation() {
     this.animator.leaveAnimation = {properties:this.selectedLeaveAnimation,options:{easing:this.selectedLeaveEasing,duration:this.leaveDuration}};
   }
 
 }
+
