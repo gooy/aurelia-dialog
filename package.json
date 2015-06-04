@@ -107,37 +107,31 @@
       "gooy/aurelia-markdown": "github:gooy/aurelia-markdown@^0.0.1",
       "gooy/aurelia-smooth-scroll": "github:gooy/aurelia-smooth-scroll@^0.0.1",
       "text": "github:systemjs/plugin-text@^0.0.2"
-    },
-    "overrides": {
-      "github:lazd/scopedQuerySelectorShim@master": {
-        "directories": {
-          "lib": "src"
+    }
+  },
+  "aurelia": {
+    "usedBy": [],
+    "documentation": {
+      "links": [
+        {
+          "rel": "license",
+          "mediaType": "text/plain",
+          "title": "The MIT License (MIT)",
+          "href": "LICENSE"
+        },
+        {
+          "rel": "describedby",
+          "mediaType": "application/aurelia-doc+json",
+          "title": "API",
+          "href": "doc/api.json"
+        },
+        {
+          "rel": "version-history",
+          "mediaType": "text/markdown",
+          "title": "Change Log",
+          "href": "doc/CHANGELOG.md"
         }
-      },
-      "github:Reactive-Extensions/RxJS@2.5.2": {
-        "main": "rx.js",
-        "format": "global",
-        "directories": {
-          "lib": "dist"
-        }
-      },
-      "github:aurelia/loader@0.6.0": {
-        "dependencies": {
-          "aurelia-html-template-element": "github:aurelia/html-template-element@^0.2.0",
-          "aurelia-path": "github:aurelia/path@^0.6.0",
-          "core-js": "npm:core-js@^0.9.5",
-          "webcomponentsjs": "github:webcomponents/webcomponentsjs@^0.7.2"
-        }
-      },
-      "github:julianshapiro/velocity@1.2.2": {
-        "files": [
-          "velocity.js",
-          "velocity.min.js",
-          "velocity.ui.js",
-          "velocity.ui.min.js"
-        ],
-        "format": "global"
-      }
+      ]
     }
   }
 }
