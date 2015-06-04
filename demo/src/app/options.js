@@ -1,12 +1,7 @@
 import {bindable} from 'aurelia-framework';
-import {CssAnimator} from "aaike/animator-css";
 
-export class Home{
+export class Options{
 
-  static inject = [CssAnimator];
-  constructor(animator) {
-    this.animator = animator;
-  }
 
 
 }

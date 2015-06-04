@@ -5,7 +5,6 @@ var shell = require('child-process-promise');
 var filesize = require('filesize');
 var gzipSize = require('gzip-size');
 var uglify = require('gulp-uglify');
-var Promise = require('rsvp').Promise;
 
 var dirs = gulp.pkg.demo.directories;
 
@@ -23,11 +22,9 @@ gulp.task('demo-bundle', function (done) {
     'aurelia-dependency-injection',
     'aurelia-framework',
     'aurelia-router',
-    'aaike/animator-css',
     'npm:core-js',
 
     'github:aurelia/metadata@0.5.0',
-    //'github:aurelia/validation@0.2.4',
     'github:aurelia/task-queue@0.4.0',
     'github:aurelia/event-aggregator@0.4.0',
     'github:aurelia/templating@0.11.2',
@@ -41,8 +38,6 @@ gulp.task('demo-bundle', function (done) {
     'github:aurelia/loader-default@0.7.0'
 
   ].join(' + ');
-
-
 
   jspm.bundle(cmd,distFile,{inject:true,minify:true}).then(function(){
     fs.rename(distFile, outputFile, function(){

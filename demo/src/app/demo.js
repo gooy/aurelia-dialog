@@ -1,5 +1,5 @@
 import {bindable} from 'aurelia-framework';
-import {SmoothScroll} from 'components/smooth-scroll';
+import {SmoothScroll} from 'gooy/aurelia-smooth-scroll';
 
 export class Demo{
 

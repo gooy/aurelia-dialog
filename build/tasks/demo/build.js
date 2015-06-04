@@ -22,7 +22,7 @@ var _dirs = gulp.pkg.directories;
 gulp.task('demo-build-system', function () {
   return gulp.src(dirs.lib+"/app/**/*.js")
   .pipe(plumber())
-  .pipe(changed(dirs.build, {extension: '.js'}))
+  //.pipe(changed(dirs.build, {extension: '.js'}))
   .pipe(sourcemaps.init())
   .pipe(babel(assign({}, compilerOptions, {modules:'system'})))
   .pipe(sourcemaps.write("."))
@@ -102,7 +102,7 @@ gulp.task('demo-clean-dist', function() {
 gulp.task('demo-build', function(done) {
   return runSequence(
     'demo-clean-dist',
-    //'demo-unbundle',
+    'demo-unbundle',
     ['demo-build-system','demo-build-html','demo-build-root','demo-build-assets'],
     ['demo-less','demo-less_bootstrap'],
     done
@@ -115,7 +115,6 @@ gulp.task('demo-build', function(done) {
 gulp.task('demo-build-prod', function(done) {
   return runSequence(
     'demo-clean-dist',
-    //'demo-unbundle',
     ['demo-build-system','demo-build-html','demo-build-assets'],
     ['demo-less-prod','demo-less_bootstrap-prod'],
     'demo-bundle',

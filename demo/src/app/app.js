@@ -7,7 +7,8 @@ export class App {
     config.title = 'Aurelia Dialog';
     config.map([
       { route: ['','home'],  moduleId: './home',      nav: true, title:'Home' },
-      { route: 'demo',  moduleId: './demo',      nav: true, title:'Demo' }
+      { route: 'demo',  moduleId: './demo',      nav: true, title:'Demo' },
+      { route: 'effects',  moduleId: './effects',      nav: true, title:'Effects' }
     ]);
 
     this.router = router;

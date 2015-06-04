@@ -1,16 +1,13 @@
 import {skipContentProcessing,customElement,noView, bindable} from 'aurelia-framework';
 import {Container,ViewSlot} from 'aurelia-framework';
 import {Compiler} from 'gooy/aurelia-compiler';
-import {CssAnimator} from "aaike/animator-css";
+import {VelocityAnimator} from "gooy/aurelia-animator-velocity";
 import {ElementSelectors} from "./element-selectors";
-import {DialogConfig} from './config';
-
-//import $ from 'zepto';
 
 @customElement('dialog')
 @noView
 @skipContentProcessing
-export class DialogCustomElement {
+export class Dialog {
 
   /**
    * Allow view to be set dynamically
@@ -29,9 +26,12 @@ export class DialogCustomElement {
 
   contentElementData;
 
-  static defaultConfig = new DialogConfig();
+  static defaultConfig = {
+    view: "gooy/aurelia-dialog/modal-bootstrap.html",
+    animations: "zoom-in leave-zoom-in"
+  };
 
-  static inject = [Element,Compiler, Container, CssAnimator, ElementSelectors];
+  static inject = [Element,Compiler, Container, VelocityAnimator, ElementSelectors];
 
   constructor(element, compiler, container, animator, elementSelectors) {
     this.element = element;
@@ -42,14 +42,13 @@ export class DialogCustomElement {
     this.elementSelectors = elementSelectors;
     this.elementSelectors.init(this.container);
 
-    this.config = Object.assign({},DialogCustomElement.defaultConfig);
+    this.config = Object.assign({},Dialog.defaultConfig);
   }
 
   bind(executionContext) {
     this.executionContext = executionContext;
 
     this.view = this.view||this.config.view;
-
     if(!this.view) throw new Error("no view has been speified for the dialog");
   }
 
@@ -58,6 +57,7 @@ export class DialogCustomElement {
   }
 
   setTransitionClasses() {
+    if(!this.transition) return;
     var i, l, _class, classes;
 
     if(this.currentTransition){

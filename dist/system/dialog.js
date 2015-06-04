@@ -1,7 +1,7 @@
-System.register(['aurelia-framework', 'gooy/aurelia-compiler', 'aaike/animator-css', './element-selectors', './config'], function (_export) {
+System.register(['aurelia-framework', 'gooy/aurelia-compiler', 'gooy/aurelia-animator-velocity', './element-selectors'], function (_export) {
   'use strict';
 
-  var skipContentProcessing, customElement, noView, bindable, Container, ViewSlot, Compiler, CssAnimator, ElementSelectors, DialogConfig, DialogCustomElement;
+  var skipContentProcessing, customElement, noView, bindable, Container, ViewSlot, Compiler, VelocityAnimator, ElementSelectors, Dialog;
 
   var _createDecoratedClass = (function () { function defineProperties(target, descriptors, initializers) { for (var i = 0; i < descriptors.length; i++) { var descriptor = descriptors[i]; var decorators = descriptor.decorators; var key = descriptor.key; delete descriptor.key; delete descriptor.decorators; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor || descriptor.initializer) descriptor.writable = true; if (decorators) { for (var f = 0; f < decorators.length; f++) { var decorator = decorators[f]; if (typeof decorator === 'function') { descriptor = decorator(target, key, descriptor) || descriptor; } else { throw new TypeError('The decorator for method ' + descriptor.key + ' is of the invalid type ' + typeof decorator); } } if (descriptor.initializer !== undefined) { initializers[key] = descriptor; continue; } } Object.defineProperty(target, key, descriptor); } } return function (Constructor, protoProps, staticProps, protoInitializers, staticInitializers) { if (protoProps) defineProperties(Constructor.prototype, protoProps, protoInitializers); if (staticProps) defineProperties(Constructor, staticProps, staticInitializers); return Constructor; }; })();
 
@@ -19,19 +19,17 @@ System.register(['aurelia-framework', 'gooy/aurelia-compiler', 'aaike/animator-c
       ViewSlot = _aureliaFramework.ViewSlot;
     }, function (_gooyAureliaCompiler) {
       Compiler = _gooyAureliaCompiler.Compiler;
-    }, function (_aaikeAnimatorCss) {
-      CssAnimator = _aaikeAnimatorCss.CssAnimator;
+    }, function (_gooyAureliaAnimatorVelocity) {
+      VelocityAnimator = _gooyAureliaAnimatorVelocity.VelocityAnimator;
     }, function (_elementSelectors) {
       ElementSelectors = _elementSelectors.ElementSelectors;
-    }, function (_config) {
-      DialogConfig = _config.DialogConfig;
     }],
     execute: function () {
-      DialogCustomElement = (function () {
+      Dialog = (function () {
         var _instanceInitializers = {};
 
-        function DialogCustomElement(element, compiler, container, animator, elementSelectors) {
-          _classCallCheck(this, _DialogCustomElement);
+        function Dialog(element, compiler, container, animator, elementSelectors) {
+          _classCallCheck(this, _Dialog);
 
           this.__initializeProperties();
 
@@ -43,12 +41,12 @@ System.register(['aurelia-framework', 'gooy/aurelia-compiler', 'aaike/animator-c
           this.elementSelectors = elementSelectors;
           this.elementSelectors.init(this.container);
 
-          this.config = Object.assign({}, DialogCustomElement.defaultConfig);
+          this.config = Object.assign({}, Dialog.defaultConfig);
         }
 
-        var _DialogCustomElement = DialogCustomElement;
+        var _Dialog = Dialog;
 
-        _createDecoratedClass(_DialogCustomElement, [{
+        _createDecoratedClass(_Dialog, [{
           key: 'view',
           decorators: [bindable],
           initializer: null,
@@ -59,7 +57,6 @@ System.register(['aurelia-framework', 'gooy/aurelia-compiler', 'aaike/animator-c
             this.executionContext = executionContext;
 
             this.view = this.view || this.config.view;
-
             if (!this.view) throw new Error('no view has been speified for the dialog');
           }
         }, {
@@ -70,6 +67,7 @@ System.register(['aurelia-framework', 'gooy/aurelia-compiler', 'aaike/animator-c
         }, {
           key: 'setTransitionClasses',
           value: function setTransitionClasses() {
+            if (!this.transition) return;
             var i, l, _class, classes;
 
             if (this.currentTransition) {
@@ -248,21 +246,24 @@ System.register(['aurelia-framework', 'gooy/aurelia-compiler', 'aaike/animator-c
           }
         }], [{
           key: 'defaultConfig',
-          value: new DialogConfig(),
+          value: {
+            view: 'gooy/aurelia-dialog/modal-bootstrap.html',
+            animations: 'zoom-in leave-zoom-in'
+          },
           enumerable: true
         }, {
           key: 'inject',
-          value: [Element, Compiler, Container, CssAnimator, ElementSelectors],
+          value: [Element, Compiler, Container, VelocityAnimator, ElementSelectors],
           enumerable: true
         }], _instanceInitializers);
 
-        DialogCustomElement = skipContentProcessing(DialogCustomElement) || DialogCustomElement;
-        DialogCustomElement = noView(DialogCustomElement) || DialogCustomElement;
-        DialogCustomElement = customElement('dialog')(DialogCustomElement) || DialogCustomElement;
-        return DialogCustomElement;
+        Dialog = skipContentProcessing(Dialog) || Dialog;
+        Dialog = noView(Dialog) || Dialog;
+        Dialog = customElement('dialog')(Dialog) || Dialog;
+        return Dialog;
       })();
 
-      _export('DialogCustomElement', DialogCustomElement);
+      _export('Dialog', Dialog);
     }
   };
 });

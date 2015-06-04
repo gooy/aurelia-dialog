@@ -17,7 +17,7 @@ module.exports.pkg = require('gulp').pkg = require('deep-extend')({
     directories: {
       lib: "demo/src",
       build: "demo/dist",
-      deploy: "deploy/demo"
+      deploy: "deploy"
     }
   }
 },require('./package.json'));
