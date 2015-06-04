@@ -6,28 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Aurelia Dialog</title>
 
-    <!-- Custom styles for this build -->
+    <link rel="stylesheet" type="text/css" href="jspm_packages/npm/font-awesome@4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
   </head>
-  <body aurelia-app="main">
+  <body>
 
-    <div class="splash">
-      <div class="message">Aurelia Dialog</div>
+    <div aurelia-app="main">
+      <div class="splash">
+        <div class="message">Aurelia Dialog</div>
+        <i class="fa fa-spinner fa-spin"></i>
+      </div>
     </div>
 
-    <script src="/jspm_packages/system.js"></script>
+    <script src="jspm_packages/system.js"></script>
     <script src="config.js"></script>
     <script>
       System.config({
         paths: {
           "*": "app/*.js",
-          "github:*": "/jspm_packages/github/*.js",
-          "npm:*": "/jspm_packages/npm/*.js"
+          "github:*": "jspm_packages/github/*.js",
+          "npm:*": "jspm_packages/npm/*.js"
         }
       });
       System.import('aurelia-bootstrapper');
     </script>
+
   </body>
 </html>
