@@ -426,8 +426,7 @@ System.config({
     },
     "github:gooy/aurelia-dialog@0.0.1": {
       "gooy/aurelia-animator-velocity": "github:gooy/aurelia-animator-velocity@0.0.1",
-      "gooy/aurelia-compiler": "github:gooy/aurelia-compiler@0.0.3",
-      "gooy/aurelia-smooth-scroll": "github:gooy/aurelia-smooth-scroll@0.0.1"
+      "gooy/aurelia-compiler": "github:gooy/aurelia-compiler@0.0.3"
     },
     "github:gooy/aurelia-markdown@0.0.1": {
       "prism": "github:PrismJS/prism@master",

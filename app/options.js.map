@@ -1,1 +1,1 @@
-{"version":3,"sources":["options.js"],"names":[],"mappings":";;;gBAEa,OAAO;;;;;;mCAFZ,QAAQ;;;AAEH,aAAO,YAAP,OAAO;8BAAP,OAAO;;;yBAAP,OAAO","file":"options.js","sourceRoot":"/source/","sourcesContent":["import {bindable} from 'aurelia-framework';\n\nexport class Options{\n\n\n\n}\n"]}
+{"version":3,"sources":["options.js"],"names":[],"mappings":";;;gBAEa,OAAO;;;;;;mCAFZ,QAAQ;;;AAEH,aAAO,YAAP,OAAO;8BAAP,OAAO;;;yBAAP,OAAO","file":"options.js","sourceRoot":"/source/","sourcesContent":["import {bindable} from 'aurelia-framework';\r\n\r\nexport class Options{\r\n\r\n\r\n\r\n}\r\n"]}
