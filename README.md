@@ -20,8 +20,8 @@ aurelia.use.plugin('gooy/aurelia-dialog');
 
 ## Dependencies
 
-* [gooy/aurelia-animator-velocity](https://github.com/aurelia/aurelia-animator-velocity)
-* [gooy/aurelia-compiler](https://github.com/aurelia/aurelia-compiler)
+* [gooy/aurelia-animator-velocity](https://github.com/gooy/aurelia-animator-velocity)
+* [gooy/aurelia-compiler](https://github.com/gooy/aurelia-compiler)
 
 ## Platform Support
 
